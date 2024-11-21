@@ -12,7 +12,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          region: eu-west-1
+          aws-region: eu-west-1
 
       - name: Login to Amazon ECR
         id: login-ecr
