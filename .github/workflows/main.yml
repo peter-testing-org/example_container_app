@@ -23,7 +23,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push image to Amazon ECR
-        id: build-image
+        id: build-push-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
@@ -38,7 +38,7 @@ jobs:
 
       - name: Push production image to trigger AppRunner deployment
         if: github.ref_name == github.event.repository.default_branch
-        id: build-image
+        id: build-push-deployment-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: production_latest
