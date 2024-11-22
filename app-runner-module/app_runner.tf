@@ -74,7 +74,7 @@ module "app_runner_image_base" {
     authentication_configuration = {
       access_role_arn = module.iam_assumable_role.iam_role_arn
     }
-    auto_deployments_enabled = false
+    auto_deployments_enabled = true
     image_repository = {
       image_configuration = {
         port = 80
@@ -85,7 +85,7 @@ module "app_runner_image_base" {
         #   MY_SECRET = aws_secretsmanager_secret.this.arn
         # }
       }
-      image_identifier      = "339712897199.dkr.ecr.eu-west-1.amazonaws.com/peter-testing-org/example_container_app:119281d705445deb436c5d640af650cbe5c43c47"
+      image_identifier      = "339712897199.dkr.ecr.eu-west-1.amazonaws.com/peter-testing-org/example_container_app:production_latest"
       image_repository_type = "ECR"
     }
   }
