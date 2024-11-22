@@ -69,10 +69,12 @@ module "app_runner_image_base" {
   #   }
   # }
 
+  create_instance_iam_role = true
+  create_access_iam_role = true
+
   private_ecr_arn = aws_ecr_repository.application.arn
   source_configuration = {
     authentication_configuration = {
-      access_role_arn = module.iam_assumable_role.iam_role_arn
     }
     auto_deployments_enabled = true
     image_repository = {

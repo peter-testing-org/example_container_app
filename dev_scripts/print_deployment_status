@@ -1,0 +1,2 @@
+# describe service, print status (deployment status)
+aws apprunner describe-service  --service-arn arn:aws:apprunner:eu-west-1:339712897199:service/test-app-runner/45853363fe3343aea2229a0d082d5412 | jq '.Service.Status'
